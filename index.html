@@ -1,264 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>You Got a Hog?</title>
-
-<style>
-body {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  background-color: #fffacd;
-  color: #000;
-  text-align: center;
-  padding: 50px;
-}
-
-h1 {
-  font-size: 32px;
-  background-color: #99ffcc;
-  display: inline-block;
-  padding: 10px;
-  border: 2px dashed #ff00cc;
-}
-
-.headline {
-  font-size: 28px;
-  font-weight: bold;
-  color: #ffffff;
-  background: #ff33cc;
-  padding: 15px;
-  border: 4px double #000;
-  margin-bottom: 30px;
-  text-shadow: 2px 2px #000000;
-}
-
-button, select, input {
-  font-size: 16px;
-  margin-top: 10px;
-  padding: 8px 12px;
-  border: 2px solid #003366;
-  background-color: #ffccff;
-  font-weight: bold;
-}
-
-input, select {
-  width: 200px;
-  display: block;
-  margin: 0 auto 10px;
-}
-
-label {
-  margin-top: 20px;
-  display: block;
-  font-weight: bold;
-}
-
-.hidden {
-  display: none;
-}
-
-#result, #reverseResult {
-  font-size: 48px;
-  font-weight: bold;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #ffff99;
-  padding: 30px;
-  border: 6px solid #ff33cc;
-  box-shadow: 6px 6px 12px #666;
-  z-index: 1000;
-}
-
-.flashing {
-  animation: flash 0.4s infinite;
-  color: #ff0033;
-  font-size: 72px;
-  text-shadow: 3px 3px 0 #ffff00;
-}
-
-@keyframes flash {
-  0% { opacity: 1; }
-  50% { opacity: 0.1; }
-  100% { opacity: 1; }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You Got a Hog?</title>
+  <style>
+    body {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      background-color: #fffacd; /* pale yellow */
+      color: #ffccff;
+      text-align: center;
+      padding: 50px;
+      background-image: none;
+      cursor: url('https://cur.cursors-4u.net/cursors/cur-9/cur804.cur'), auto;
+    }
+    h1 {
+      font-size: 32px;
+      background-color: #99ffcc;
+      display: inline-block;
+      padding: 10px;
+      border: 2px dashed #ff00cc;
+    }
+    .headline {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ffffff;
+      background: #ff33cc;
+      padding: 15px;
+      border: 4px double #000;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px #000000;
+    }
+    button, select, input {
+      font-size: 16px;
+      margin-top: 10px;
+      padding: 8px 12px;
+      border: 2px solid #003366;
+      background-color: #ffccff;
+      color: #000;
+      font-weight: bold;
+    }
+    input, select {
+      width: 200px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    label {
+      margin-top: 20px;
+      display: block;
+      font-weight: bold;
+    }
+    .hidden {
+      display: none;
+    }
+    #result, #reverseResult {
+      margin-top: 20px;
+      font-size: 48px;
+      font-weight: bold;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #ffff99;
+      padding: 30px;
+      border: 6px solid #ff33cc;
+      box-shadow: 6px 6px 12px #666;
+      z-index: 1000;
+    }
+    .flashing {
+      animation: flash 0.4s infinite;
+      color: #ff0033;
+      font-size: 72px;
+      text-shadow: 3px 3px 0 #ffff00;
+    }
+    @keyframes flash {
+      0% { opacity: 1; }
+      50% { opacity: 0.1; }
+      100% { opacity: 1; }
+    }
+    .back-button, .result-home {
+      display: block;
+      margin: 20px auto;
+      font-size: 14px;
+      padding: 6px 10px;
+      background-color: #ffccff;
+      border: 2px solid #003366;
+      cursor: pointer;
+    }
+    .hit-counter {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #000;
+    }
+  </style>
 </head>
-
 <body>
+  <div class="headline">HOW BIG IS YOUR HOG</div>
 
-<div class="headline">HOW BIG IS YOUR HOG</div>
+  <embed src="https://www.cjoint.com/doc/24_07/NGexjHwCkik_midi-example.mid" autostart="true" hidden="true" />
 
-<div id="step1">
-  <h1>You got a hog?</h1>
-  <button onclick="goToHogSize()">Yes</button>
-  <button onclick="goToBraSize()">No</button>
-</div>
+  <div id="step1">
+    <h1>You got a hog?</h1>
+    <button onclick="goToHogSize()">Yes</button>
+    <button onclick="goToBraSize()">No</button>
+  </div>
 
-<div id="step2" class="hidden">
-  <h1>How big is it?</h1>
+  <div id="step2" class="hidden">
+    <h1>How big is it?</h1>
+    <label for="length">Length (in inches):</label>
+    <input type="number" id="length" min="1" />
 
-  <label for="length">Length (in inches):</label>
-  <input type="number" id="length" min="1" />
+    <label for="girth">Girth:</label>
+    <select id="girth">
+      <option value="28">Pencil</option>
+      <option value="30">Carrot</option>
+      <option value="32">Hot Dog</option>
+      <option value="34">Banana</option>
+      <option value="36">Corndog</option>
+      <option value="38">Gas Station Pickle in a Bag</option>
+      <option value="40">Soda Can</option>
+    </select>
 
-  <label for="girth">Girth:</label>
-  <select id="girth">
-    <option value="28">Pencil</option>
-    <option value="30">Carrot</option>
-    <option value="32">Hot Dog</option>
-    <option value="34">Banana</option>
-    <option value="36">Corndog</option>
-    <option value="38">Gas Station Pickle in a Bag</option>
-    <option value="40">Soda Can</option>
-  </select>
+    <button onclick="calculateSize()">Submit</button>
+    <button class="back-button" onclick="goHome()">Back to Start</button>
+    <div id="result" class="hidden"></div>
+  </div>
 
-  <button onclick="calculateSize()">Submit</button>
-  <button onclick="goHome()">Back to Start</button>
+  <div id="step3" class="hidden">
+    <h1>What's your bra size?</h1>
+    <input type="text" id="braSizeInput" placeholder="e.g. 30D" />
+    <button onclick="reverseCalculate()">Submit</button>
+    <button class="back-button" onclick="goHome()">Back to Start</button>
+    <div id="reverseResult" class="hidden"></div>
+  </div>
 
-  <div id="result" class="hidden"></div>
-</div>
+  <div class="hit-counter">
+    <script type="text/javascript" src="https://www.freecounterstat.com/count/your-counter-id-here.js">function handleSubscribe(event) {
+  event.preventDefault();
+  const form = document.getElementById('newsletterForm');
+  const formData = new FormData(form);
 
-<div id="step3" class="hidden">
-  <h1>What's your bra size?</h1>
-  <input type="text" id="braSizeInput" placeholder="e.g. 30D" />
-  <button onclick="reverseCalculate()">Submit</button>
-  <button onclick="goHome()">Back to Start</button>
-
-  <div id="reverseResult" class="hidden"></div>
-</div>
-
-<script>
-function goHome() {
-  document.getElementById('step1').classList.remove('hidden');
-  document.getElementById('step2').classList.add('hidden');
-  document.getElementById('step3').classList.add('hidden');
-  document.getElementById('result').classList.add('hidden');
-  document.getElementById('reverseResult').classList.add('hidden');
+  fetch(form.action, {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  }).then(() => {
+    form.innerHTML = '<span style="font-weight:bold;">Thank you for subscribing.</span>';
+  }).catch(() => {
+    form.innerHTML = '<span style="font-weight:bold;">Thank you for subscribing.</span>';
+  });
 }
 
-function goToHogSize() {
-  document.getElementById('step1').classList.add('hidden');
-  document.getElementById('step2').classList.remove('hidden');
-}
-
-function goToBraSize() {
-  document.getElementById('step1').classList.add('hidden');
-  document.getElementById('step3').classList.remove('hidden');
-}
-
-function getSizeLetter(length) {
-  switch (parseInt(length)) {
-    case 1: return "A";
-    case 2: return "B";
-    case 3: return "C";
-    case 4: return "D";
-    case 5: return "DD";
-    case 6: return "DDD";
-    case 7: return "F";
-    case 8: return "G";
-    case 9: return "H";
-    case 10: return "I";
-    default: return "AA";
-  }
-}
-
-function calculateSize() {
-  const length = document.getElementById('length').value;
-  const girthValue = document.getElementById('girth').value;
-  const resultDiv = document.getElementById('result');
-
-  if (parseInt(length) > 10) {
-    resultDiv.innerHTML =
-      '<span class="flashing">LIAR</span><br><button onclick="goHome()">Return Home</button>';
-  } else {
-    const sizeLetter = getSizeLetter(length);
-    resultDiv.innerHTML =
-      `Your bra size would be ${girthValue}${sizeLetter}.<br><button onclick="goHome()">Return Home</button>`;
-  }
-
-  resultDiv.classList.remove('hidden');
-}
-
-function reverseCalculate() {
-  const input = document.getElementById('braSizeInput').value.trim().toUpperCase();
-  const match = input.match(/(\d+)([A-Z]+)/);
-  const resultDiv = document.getElementById('reverseResult');
-
-  if (!match) {
-    resultDiv.innerHTML =
-      'Invalid format. Try something like 30D<br><button onclick="goHome()">Return Home</button>';
-    resultDiv.classList.remove('hidden');
-    return;
-  }
-
-  const girthMap = {
-    28: 'Pencil',
-    30: 'Carrot',
-    32: 'Hot Dog',
-    34: 'Banana',
-    36: 'Corndog',
-    38: 'Gas Station Pickle in a Bag',
-    40: 'Soda Can'
-  };
-
-  const letterMap = {
-    A: 1,
-    B: 2,
-    C: 3,
-    D: 4,
-    DD: 5,
-    DDD: 6,
-    F: 7,
-    G: 8,
-    H: 9,
-    I: 10
-  };
-
-  const band = parseInt(match[1]);
-  const cup = match[2];
-  const length = letterMap[cup] || "Unknown";
-
-  let girth;
-  if (girthMap[band]) {
-    girth = girthMap[band];
-  } else if (band > 40) {
-    girth = "Soda Can";
-  } else {
-    girth = "Mystery Girth";
-  }
-
-  resultDiv.innerHTML =
-    `Your hog size would be ${length} inches, ${girth}.<br><button onclick="goHome()">Return Home</button>`;
-
-  resultDiv.classList.remove('hidden');
-}
 </script>
+    <noscript><a href="https://www.freecounterstat.com" title="free web counter"><img src="https://counter3.statcounterfree.com/counter.php?your-counter-id-here" alt="free web counter" border="0"></a></noscript>
+  </div>
 
-<div style="margin-top:80px; font-size:12px; color:#444;">
-  <form action="https://formspree.io/f/xnjgqwny" method="POST">
-    <span>
-      Subscribe to be alerted every time a movie with full frontal comes out
+  <script>
+    function goHome() {
+      document.getElementById('step1').classList.remove('hidden');
+      document.getElementById('step2').classList.add('hidden');
+      document.getElementById('step3').classList.add('hidden');
+      document.getElementById('result').classList.add('hidden');
+      document.getElementById('reverseResult').classList.add('hidden');
+    }
+
+    function goToHogSize() {
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('step2').classList.remove('hidden');
+    }
+
+    function goToBraSize() {
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('step3').classList.remove('hidden');
+    }
+
+    function getSizeLetter(length) {
+      switch (parseInt(length)) {
+        case 1: return "A";
+        case 2: return "B";
+        case 3: return "C";
+        case 4: return "D";
+        case 5: return "DD";
+        case 6: return "DDD";
+        case 7: return "F";
+        case 8: return "G";
+        case 9: return "H";
+        case 10: return "I";
+        default: return "AA";
+      }
+    }
+
+    function calculateSize() {
+      const length = document.getElementById('length').value;
+      const girth = document.getElementById('girth');
+      const girthValue = girth.value;
+      const resultDiv = document.getElementById('result');
+
+      if (parseInt(length) > 10) {
+        resultDiv.innerHTML = '<span class="flashing">LIAR</span><br><button class="result-home" onclick="goHome()">Return Home</button>';
+      } else {
+        const sizeLetter = getSizeLetter(length);
+        const result = `Your bra size would be ${girthValue}${sizeLetter}.`;
+        resultDiv.innerHTML = result + '<br><button class="result-home" onclick="goHome()">Return Home</button>';
+      }
+      resultDiv.classList.remove('hidden');
+    }
+
+    function reverseCalculate() {
+      const input = document.getElementById('braSizeInput').value.trim().toUpperCase();
+      const match = input.match(/(\d+)([A-Z]+)/);
+
+      const resultDiv = document.getElementById('reverseResult');
+
+      if (!match) {
+        resultDiv.innerHTML = 'Invalid format. Try something like 30D' + '<br><button class="result-home" onclick="goHome()">Return Home</button>';
+        resultDiv.classList.remove('hidden');
+        return;
+      }
+
+      const girthMap = {
+        28: 'Pencil',
+        30: 'Carrot',
+        32: 'Hot Dog',
+        34: 'Banana',
+        36: 'Corndog',
+        38: 'Gas Station Pickle in a Bag',
+        40: 'Soda Can'
+      };
+
+      const letterMap = {
+        A: 1,
+        B: 2,
+        C: 3,
+        D: 4,
+        DD: 5,
+        DDD: 6,
+        F: 7,
+        G: 8,
+        H: 9,
+        I: 10
+      };
+
+      const band = parseInt(match[1]);
+      const cup = match[2];
+      const length = letterMap[cup] || 'Unknown';
+      let girth;
+      if (girthMap[band]) {
+        girth = girthMap[band];
+      } else if (band > 40) {
+        girth = 'Industrial Strength Soda Can';
+      } else {
+        girth = 'Mystery Girth';
+      }
+
+      const result = `Your hog size would be ${length} inches, ${girth} girth.`;
+      resultDiv.innerHTML = result + '<br><button class="result-home" onclick="goHome()">Return Home</button>';
+      resultDiv.classList.remove('hidden');
+    }
+  </script>
+
+<div style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #c3f0ff;
+  border-top: 3px solid #000;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 12px;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+">
+  <form id="newsletterForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="margin:0;" onsubmit="handleSubscribe(event)">
+    <span style="margin-right:8px;">
+      Subscribe to be updated every time a new movie comes out that shows full frontal:
     </span>
     <input 
       type="email" 
       name="email" 
-      placeholder="email"
+      placeholder="email" 
       required
-      style="width:140px; font-size:12px; padding:3px;"
+      style="width:160px; font-size:12px; padding:3px;"
     >
     <button 
       type="submit"
-      style="font-size:12px; padding:3px 8px; background:#ff33cc; color:white; border:1px solid black;"
+      style="font-size:12px; padding:3px 10px; background:#ff33cc; color:white; border:1px solid black; font-weight:bold;"
     >
       Join Hog Nation
     </button>
   </form>
 </div>
-
-</body>
-</html>
 
 </body>
 </html>
