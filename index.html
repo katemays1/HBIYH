@@ -228,8 +228,14 @@
       const band = parseInt(match[1]);
       const cup = match[2];
       const length = letterMap[cup] || 'Unknown';
-      const girth = girthMap[band] || 'Unknown';
-
+      let girth;
+      if (girthMap [band]) {
+        girth = girthMap [band];
+      } else if (band > 40) {
+        girth = 'Soda Can''
+      }
+         
+      
       const result = `Your hog size would be ${length} inches, ${girth} girth.`;
       resultDiv.innerHTML = result + '<br><button class="result-home" onclick="goHome()">Return Home</button>';
       resultDiv.classList.remove('hidden');
