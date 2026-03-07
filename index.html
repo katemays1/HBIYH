@@ -232,10 +232,9 @@
       if (girthMap [band]) {
         girth = girthMap [band];
       } else if (band > 40) {
-        girth = 'Soda Can''
+        girth = 'Soda Can';
       }
          
-      
       const result = `Your hog size would be ${length} inches, ${girth} girth.`;
       resultDiv.innerHTML = result + '<br><button class="result-home" onclick="goHome()">Return Home</button>';
       resultDiv.classList.remove('hidden');
