@@ -7,39 +7,45 @@
   <style>
     body {
       font-family: "Comic Sans MS", cursive, sans-serif;
-      background-color: #080808;
-      color: #ffccff;
+      background-color: #000000;
+      color: #ffffff;
       text-align: center;
       padding: 50px;
+      padding-bottom: 120px;
       background-image: none;
       cursor: url('https://cur.cursors-4u.net/cursors/cur-9/cur804.cur'), auto;
     }
     h1 {
       font-size: 32px;
-      color: #121670
-      background-color: #C4C4C4;
+      background-color: #0038a8;
+      color: #ffffff;
       display: inline-block;
-      padding: 10px;
-      border: 2px #105CE6;
+      padding: 12px 18px;
+      border: 3px outset #c0c0c0;
+      box-shadow: 4px 4px 0 #00ff66;
+      margin-top: 35px;
     }
     .headline {
-      font-size: 28px;
+      font-size: 30px;
       font-weight: bold;
       color: #ffffff;
-      background: #105CE6;
-      padding: 15px;
-      border: 4px solid #000;
-      margin-bottom: 30px;
+      background: linear-gradient(to bottom, #4d7dff 0%, #0038a8 45%, #002a7a 100%);
+      padding: 18px;
+      border: 4px outset #c0c0c0;
+      margin-bottom: 70px;
       text-shadow: 2px 2px #000000;
+      box-shadow: 0 0 14px #00ff66, 6px 6px 0 #001a4d;
+      letter-spacing: 1px;
     }
     button, select, input {
       font-size: 16px;
       margin-top: 10px;
       padding: 8px 12px;
       border: 2px solid #003366;
-      background-color: #D1FF54;
+      background-color: #e6e6e6;
       color: #000;
       font-weight: bold;
+      box-shadow: 2px 2px 0 #00ff66;
     }
     input, select {
       width: 200px;
@@ -55,17 +61,17 @@
       display: none;
     }
     #result, #reverseResult {
-      margin-top: 20px;
       font-size: 48px;
       font-weight: bold;
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: #ffff99;
+      background-color: #0038a8;
+      color: #ffffff;
       padding: 30px;
-      border: 6px solid #ff33cc;
-      box-shadow: 6px 6px 12px #666;
+      border: 6px outset #c0c0c0;
+      box-shadow: 0 0 18px #00ff66, 6px 6px 12px #111;
       z-index: 1000;
     }
     .flashing {
@@ -84,9 +90,11 @@
       margin: 20px auto;
       font-size: 14px;
       padding: 6px 10px;
-      background-color: #ffccff;
-      border: 2px solid #003366;
+      background-color: #c0c0c0;
+      border: 2px outset #ffffff;
+      color: #000;
       cursor: pointer;
+      box-shadow: 2px 2px 0 #00ff66;
     }
     .hit-counter {
       margin-top: 40px;
@@ -96,11 +104,11 @@
   </style>
 </head>
 <body>
-  <div class="headline">howbigisyourhog.com</div>
+  <div class="headline">HOW BIG IS YOUR HOG</div>
 
   <embed src="https://www.cjoint.com/doc/24_07/NGexjHwCkik_midi-example.mid" autostart="true" hidden="true" />
 
-  <div id="step1">
+  <div id="step1" style="margin-top: 40px;">
     <h1>You got a hog?</h1>
     <button onclick="goToHogSize()">Yes</button>
     <button onclick="goToBraSize()">No</button>
@@ -249,7 +257,7 @@
       if (girthMap[band]) {
         girth = girthMap[band];
       } else if (band > 40) {
-        girth = 'Soda Can';
+        girth = 'Industrial Strength Soda Can';
       } else {
         girth = 'Mystery Girth';
       }
@@ -265,17 +273,23 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #c3f0ff;
-  color: #ff00cc;
-  border-top: 3px solid #000;
+  background-color: #0038a8;
+  color: #ffffff;
+  border-top: 4px outset #c0c0c0;
   padding: 8px 0;
   text-align: center;
   font-size: 12px;
-  box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 -2px 10px #00ff66;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
 ">
-  <form id="newsletterForm" action="https://formspree.io/f/xnjgqwny" method="POST" style="margin:0;" onsubmit="handleSubscribe(event)">
+  <img src="https://media.giphy.com/media/l0HU7JI0xBkQG3kfm/giphy.gif" alt="flame gif" style="height:40px; width:auto;">
+  <form id="newsletterForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="margin:0;" onsubmit="handleSubscribe(event)">
     <span style="margin-right:8px;">
-      Subscribe to be alerted every time a new movie comes out that shows full frontal:
+      Subscribe to be updated every time a new movie comes out that shows full frontal:
     </span>
     <input 
       type="email" 
@@ -291,7 +305,7 @@
       Join Hog Nation
     </button>
   </form>
+  <img src="https://media.giphy.com/media/l0HU7JI0xBkQG3kfm/giphy.gif" alt="flame gif" style="height:40px; width:auto;">
 </div>
-
 </body>
 </html>
