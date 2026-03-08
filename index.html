@@ -31,14 +31,37 @@
       background-size: cover, 100% 100%, 100% 100%;
     }
     h1 {
-      font-size: 32px;
-      background-color: #00ff66;
-      color: #000000;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 18px 28px;
+      margin-top: 40px;
       display: inline-block;
-      padding: 14px 22px;
-      border: 4px outset #0038a8;
-      box-shadow: 0 0 14px #0038a8, 6px 6px 0 #001a4d;
-      margin-top: 35px;
+
+      /* Metallic neon gradient text */
+      background-image: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #7df9ff 30%,
+        #1e90ff 55%,
+        #0038a8 75%,
+        #ffffff 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      /* 3D neon frame */
+      border: 4px solid #7df9ff;
+      background-color: #001a4d;
+      box-shadow:
+        0 0 18px #00ffff,
+        inset 0 0 15px #0038a8,
+        6px 6px 0 #000;
+
+      border-radius: 6px;
     }
     .headline {
       font-family: 'Orbitron', sans-serif;
